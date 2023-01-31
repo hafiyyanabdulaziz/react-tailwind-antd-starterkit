@@ -14,29 +14,26 @@ function DragDropExample() {
 
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "image",
-    drop: (item) => addImageToBoard(item.id),
+    drop: (item) => addImageToBoard(item),
     collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop(),
     }),
+    // collect: (monitor) => {
+    //   // console.log("monitor", monitor);
+    //   return {
+    //     isOver: !!monitor.isOver(),
+    //   };
+    // },
   }));
 
-  const addImageToBoard = (id) => {
+  const addImageToBoard = (item) => {
+    console.log(item);
+    const { id } = item;
     const pictureList = PictureList.filter((picture) => id === picture.id);
     setBoard((board) => [...board, pictureList[0]]);
   };
   return (
-    // <div className='w-full h-screen bg-yellow-100 flex'>
-    //   <div className='bg-slate-500  min-h-[500px] w-96' ref={drop}>
-    //     {board.map((picture) => {
-    //       return <Picture url={picture.url} id={picture.id} />;
-    //     })}
-    //   </div>
-    //   <div className=''>
-    //     {PictureList.map((picture) => {
-    //       return <Picture url={picture.url} id={picture.id} />;
-    //     })}
-    //   </div>
-    // </div>
     <div className='flex min-h-screen'>
       <div className='w-1/3 bg-slate-100 border border-black' ref={drop}>
         {board.map((picture) => {

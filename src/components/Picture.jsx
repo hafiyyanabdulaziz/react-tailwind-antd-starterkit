@@ -6,8 +6,12 @@ function Picture({ id, url }) {
     type: "image",
     item: { id: id },
     collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
+      isDragging: monitor.isDragging(),
+      handlerId: monitor.getHandlerId(),
     }),
+    // collect: (monitor) => ({
+    //   isDragging: !!monitor.isDragging(),
+    // }),
   }));
   return (
     <img

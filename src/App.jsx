@@ -5,6 +5,7 @@ import DragTable from "./components/DragTable";
 import DragDropExample from "./components/DragDropExample";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import NestedTable from "./components/NestedTable";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <SimpleTable />
       <Divider />
       <DragTable />
+      <NestedTable />
       <DndProvider backend={HTML5Backend}>
         <DragDropExample />
       </DndProvider>
