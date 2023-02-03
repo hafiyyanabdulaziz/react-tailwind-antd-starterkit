@@ -1,9 +1,9 @@
 import { Input } from "antd";
 import React, { useState } from "react";
-// import Card from "./Card";
+import Card from "./Card";
 import useKanbanStore from "../../store/kanbanStore";
 import { useDrop } from "react-dnd";
-import Card from "../Trash/Card";
+// import Card from "../Trash/Card";
 
 const Board = ({ id, title, cards }) => {
   const { addCard, moveCard } = useKanbanStore();
@@ -12,7 +12,7 @@ const Board = ({ id, title, cards }) => {
 
   const handleOnDrop = (item) => {
     console.log("item", item);
-    // addCard(item.text, id);
+    addCard(item.text, id);
     // moveCard(item, 1);
   };
 
