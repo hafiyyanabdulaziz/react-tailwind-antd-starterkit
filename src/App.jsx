@@ -1,10 +1,12 @@
 import { Button } from "antd";
+import Example from "./components/Example";
+import FormBuilder from "./components/FormBuilder";
 
 function App() {
   return (
-    <div>
-      <h1>JUDUL</h1>
-      <Button type='primary'>Button</Button>
+    <div className='border border-black m-5 p-5'>
+      <FormBuilder />
+      {/* <Example /> */}
     </div>
   );
 }
